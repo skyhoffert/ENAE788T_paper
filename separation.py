@@ -15,9 +15,13 @@ while True:
     a = r - alpha
     d = 2 * (r * np.sin(theta/2))
     d2 = np.sqrt((d/2)**2 + (mdto+a)**2)
-    print(f"theta={theta_deg:.3f} deg, alpha={alpha:.3E}")
-    print(f"N={N}, d={d:.3E}, d2={d2:.3E}")
-    print()
-    N += 1
-    if N > 10:
+    if N > 1000:
         break
+    if d < d2:
+        break
+    
+    N += 1
+
+print(f"theta={theta_deg:.3f} deg, alpha={alpha:.3E}")
+print(f"N={N}, d={d:.3E}, d2={d2:.3E}")
+print()
