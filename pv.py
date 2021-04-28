@@ -11,6 +11,7 @@ D = np.linspace(50e9, 400e9, 100) # m
 
 D_earth = 149.6e9 # m
 D_mars = 227.9e9 # m
+D_net = (D_earth + D_mars)/2
 D_neptune = 4.488e12 # m
 
 H_sun = 64e6 # W/m^2
@@ -19,6 +20,7 @@ R_sun = 695e6 # m
 earth_idx = -1
 mars_idx = -1
 neptune_idx = -1
+net_idx = -1
 
 H_0 = np.zeros(len(D))
 for i,d in enumerate(D):
@@ -29,6 +31,8 @@ for i,d in enumerate(D):
         mars_idx = i
     if d <= D_neptune:
         neptune_idx = i
+    if d <= D_net:
+        net_idx = i
 
 plt.plot(D, H_0)
 plt.title("Solar Energy at Distance")
@@ -49,3 +53,5 @@ plt.show()
 print(f"H_0 at Earth = {H_0[earth_idx]:.3f} W/m^2")
 print(f"H_0 at Mars = {H_0[mars_idx]:.3f} W/m^2")
 print(f"H_0 at Neptune = {H_0[neptune_idx]:.3f} W/m^2")
+
+print(f"H_0 at Net = {H_0[net_idx]:.3f} W/m^2")
