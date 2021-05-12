@@ -8,7 +8,7 @@ f = 8e9
 c = 3e8
 wavelen = c / f
 
-SNR = np.linspace(0, 30, 100)
+SNR = np.linspace(0, 40, 100)
 BW = 1
 
 C = BW * np.log2(1 + np.power(10, SNR/10))
